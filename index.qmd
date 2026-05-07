@@ -402,7 +402,7 @@ En la actualidad, la estadística desempeña un papel esencial en múltiples cam
 
 # Conceptos Fundamentales de la Estadística
 
-![Figura2](Figura2.png){withd=100%}
+![Figura1](Figura2.png){withd=100%}
 
 
 ## Población, muestra y variables
