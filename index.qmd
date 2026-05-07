@@ -504,7 +504,7 @@ La estadística es herramienta fundamental para el administrador público porque
 </div>
 ```
 
-![Figura3](Figura3.png){withd=100%}
+![Figura3](Figura3.png)
 
 
 ## Fenómenos estadísticos y no estadísticos
