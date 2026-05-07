@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -99,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Fecha de publicación</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2 de mayo de 2026</p>
+        <p class="date">7 de mayo de 2026</p>
       </div>
     </div>
     
@@ -427,6 +462,12 @@ body {
 <p>En la actualidad, la estadística desempeña un papel esencial en múltiples campos como la ciencia de datos, la inteligencia artificial y la salud pública. El desarrollo tecnológico ha facilitado el manejo de grandes volúmenes de información, permitiendo analizar datos de manera más rápida y precisa.</p>
 <!-- Aquí puedes agregar tu imagen de la sección historia -->
 <!-- <img src="images/historia.png" style="width:100%; border-radius:10px; margin:1rem 0;"> -->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figura1.png" class="img-fluid figure-img" data-withd="100%"></p>
+<figcaption>Linea de tiempo</figcaption>
+</figure>
+</div>
 <section id="línea-del-tiempo" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="línea-del-tiempo"><span class="header-section-number">1.1</span> Línea del Tiempo</h2>
 <div class="timeline fade-in">
@@ -478,6 +519,12 @@ body {
 </section>
 <section id="conceptos-fundamentales-de-la-estadística" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Conceptos Fundamentales de la Estadística</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figura2.png" class="img-fluid figure-img" data-withd="100%"></p>
+<figcaption>Figura2</figcaption>
+</figure>
+</div>
 <section id="población-muestra-y-variables" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="población-muestra-y-variables"><span class="header-section-number">2.1</span> Población, muestra y variables</h2>
 <div class="card-grid fade-in">
@@ -568,6 +615,12 @@ body {
     <p>El administrador puede medir qué tan satisfecha está la comunidad con los servicios del Estado y usar esa información para mejorar.</p>
   </div>
 
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figura3.png" class="img-fluid figure-img" data-withd="100%"></p>
+<figcaption>Figura3</figcaption>
+</figure>
 </div>
 </section>
 <section id="fenómenos-estadísticos-y-no-estadísticos" class="level2" data-number="2.4">
@@ -1212,9 +1265,40 @@ function filtrarTabla() {
 <section id="resumen-visual-por-tipo" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="resumen-visual-por-tipo"><span class="header-section-number">3.2</span> Resumen visual por tipo</h2>
 <div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Ver código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>tipos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tipo =</span> <span class="fu">c</span>(<span class="st">"Nominal"</span>, <span class="st">"Ordinal"</span>, <span class="st">"Discreta"</span>, <span class="st">"Continua"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cantidad =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">18</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Color =</span> <span class="fu">c</span>(<span class="st">"#6ab0f5"</span>, <span class="st">"#5fcf8a"</span>, <span class="st">"#f5a05f"</span>, <span class="st">"#f56a8a"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(tipos, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span>Tipo, </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">~</span>Cantidad, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"bar"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="sc">~</span>Color,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">line =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"rgba(255,255,255,0.3)"</span>, <span class="at">width =</span> <span class="dv">1</span>)),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">text =</span> <span class="sc">~</span><span class="fu">paste</span>(Cantidad, <span class="st">"variables"</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">textposition =</span> <span class="st">"outside"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">hovertemplate =</span> <span class="st">"&lt;b&gt;%{x}&lt;/b&gt;&lt;br&gt;%{y} variables&lt;extra&gt;&lt;/extra&gt;"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Distribución de variables por tipo"</span>, </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">font =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"#eee"</span>, <span class="at">size =</span> <span class="dv">15</span>)),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">""</span>, <span class="at">color =</span> <span class="st">"#aaa"</span>, <span class="at">showgrid =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Número de variables"</span>, <span class="at">color =</span> <span class="st">"#aaa"</span>, </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                 <span class="at">gridcolor =</span> <span class="st">"rgba(255,255,255,0.08)"</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">paper_bgcolor =</span> <span class="st">"rgba(0,0,0,0)"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_bgcolor  =</span> <span class="st">"rgba(0,0,0,0)"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">font =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"#ccc"</span>),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">showlegend =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-e25a8060522783ecf8d4" style="width:70%;height:576px;"></div>
-<script type="application/json" data-for="htmlwidget-e25a8060522783ecf8d4">{"x":{"visdat":{"afc05e271efe":["function () ","plotlyVisDat"]},"cur_data":"afc05e271efe","attrs":{"afc05e271efe":{"x":{},"y":{},"marker":{"color":{},"line":{"color":"rgba(255,255,255,0.3)","width":1}},"text":{},"textposition":"outside","hovertemplate":"<b>%{x}<\/b><br>%{y} variables<extra><\/extra>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Distribución de variables por tipo","font":{"color":"#eee","size":15}},"xaxis":{"domain":[0,1],"automargin":true,"title":"","color":"#aaa","showgrid":false,"type":"category","categoryorder":"array","categoryarray":["Continua","Discreta","Nominal","Ordinal"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Número de variables","color":"#aaa","gridcolor":"rgba(255,255,255,0.08)"},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","font":{"color":"#ccc"},"showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Nominal","Ordinal","Discreta","Continua"],"y":[12,11,15,18],"marker":{"color":["#6ab0f5","#5fcf8a","#f5a05f","#f56a8a"],"line":{"color":"rgba(255,255,255,0.3)","width":1}},"text":["12 variables","11 variables","15 variables","18 variables"],"textposition":["outside","outside","outside","outside"],"hovertemplate":["<b>%{x}<\/b><br>%{y} variables<extra><\/extra>","<b>%{x}<\/b><br>%{y} variables<extra><\/extra>","<b>%{x}<\/b><br>%{y} variables<extra><\/extra>","<b>%{x}<\/b><br>%{y} variables<extra><\/extra>"],"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-eb16be91ef575a20eb2b" style="width:70%;height:576px;"></div>
+<script type="application/json" data-for="htmlwidget-eb16be91ef575a20eb2b">{"x":{"visdat":{"74e05b51a2b":["function () ","plotlyVisDat"]},"cur_data":"74e05b51a2b","attrs":{"74e05b51a2b":{"x":{},"y":{},"marker":{"color":{},"line":{"color":"rgba(255,255,255,0.3)","width":1}},"text":{},"textposition":"outside","hovertemplate":"<b>%{x}<\/b><br>%{y} variables<extra><\/extra>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Distribución de variables por tipo","font":{"color":"#eee","size":15}},"xaxis":{"domain":[0,1],"automargin":true,"title":"","color":"#aaa","showgrid":false,"type":"category","categoryorder":"array","categoryarray":["Continua","Discreta","Nominal","Ordinal"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Número de variables","color":"#aaa","gridcolor":"rgba(255,255,255,0.08)"},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","font":{"color":"#ccc"},"showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Nominal","Ordinal","Discreta","Continua"],"y":[12,11,15,18],"marker":{"color":["#6ab0f5","#5fcf8a","#f5a05f","#f56a8a"],"line":{"color":"rgba(255,255,255,0.3)","width":1}},"text":["12 variables","11 variables","15 variables","18 variables"],"textposition":["outside","outside","outside","outside"],"hovertemplate":["<b>%{x}<\/b><br>%{y} variables<extra><\/extra>","<b>%{x}<\/b><br>%{y} variables<extra><\/extra>","<b>%{x}<\/b><br>%{y} variables<extra><\/extra>","<b>%{x}<\/b><br>%{y} variables<extra><\/extra>"],"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

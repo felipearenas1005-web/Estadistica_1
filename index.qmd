@@ -36,6 +36,7 @@ format:
 editor: visual
 knitr:
   opts_chunk:
+    echo: true
     message: false
     warning: false
     fig.align: "center"
@@ -345,6 +346,10 @@ En la actualidad, la estadística desempeña un papel esencial en múltiples cam
 <!-- <img src="images/historia.png" style="width:100%; border-radius:10px; margin:1rem 0;"> -->
 ```
 
+![Linea de tiempo](Figura1.png){withd=100%}
+
+
+
 ## Línea del Tiempo
 
 ```{=html}
@@ -396,6 +401,9 @@ En la actualidad, la estadística desempeña un papel esencial en múltiples cam
 ```
 
 # Conceptos Fundamentales de la Estadística
+
+![Figura2](Figura2.png){withd=100%}
+
 
 ## Población, muestra y variables
 
@@ -495,6 +503,9 @@ La estadística es herramienta fundamental para el administrador público porque
 
 </div>
 ```
+
+![Figura3](Figura3.png){withd=100%}
+
 
 ## Fenómenos estadísticos y no estadísticos
 
@@ -796,7 +807,7 @@ function filtrarTabla() {
 
 ## Resumen visual por tipo
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(plotly)
 
 tipos <- data.frame(
