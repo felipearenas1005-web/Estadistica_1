@@ -1,5 +1,5 @@
 ---
-title: "HISTORIA DE LA ESTADISTICA CONCEPTOS Y VARIABLES."
+title: "HISTORIA DE LA ESTADISTICA CONCEPTOS Y VARIABLES"
 subtitle: "Taller_1"
 date: today
 author:
